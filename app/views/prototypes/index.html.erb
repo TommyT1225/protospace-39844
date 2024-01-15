@@ -5,9 +5,12 @@
         こんにちは、
         <%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link%>
       </div>
+      <%else%>
     <% end %>
     <div class="card__wrapper">
-      <%= render partial: 'prototype', collection: @prototypes %>
+    <% @prototypes.each do |prototype|  %>
+      <%= render partial: "prototype" , locals: { prototype: prototype } %>
+    <% end %>
     </div>
   </div>
 </main>
